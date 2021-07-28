@@ -1,2 +1,3 @@
 class Deck < ApplicationRecord
+    
 end
