@@ -1,8 +1,17 @@
 import './App.css';
+import { useContext, useState, React} from 'react';
 import { MainComponent } from './components/MainComponent.js';
+import { NavComponent } from './components/NavComponent.js';
 import logo from './pictures/cardGameLogo.png';
 
 function App() {
+
+  const [authData, setAuthData] = useState({auth: false, ulgi: false})
+  
+  const authContext = useContext(authData);
+  
+  console.log(authContext)
+
   return (
     <div className="main-cont" id='main-grid'>
       <header className='main-cont' id='main-header'>
@@ -11,6 +20,7 @@ function App() {
           Project CGame
         </h1>
       </header>
+      <NavComponent />
       <MainComponent />
     </div>
   );
