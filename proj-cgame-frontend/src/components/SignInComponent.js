@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 
 export const SignInComponent = () => {
 
@@ -13,7 +14,7 @@ export const SignInComponent = () => {
     return(
         <div className="main-cont" id='main-grid'>
             <h1>Sign In</h1>
-            <form onSubmit={(e) => signInFunction(e)}>
+            <form className='form-cont' id='si-f' onSubmit={(e) => signInFunction(e)}>
                 <label>
                     Username:
                 </label>
@@ -24,7 +25,7 @@ export const SignInComponent = () => {
                 <input type='text' placeholder='Password'/>
                 <button type='submit' value='submit'>Submit</button>
             </form>
-            <p>Sign Up</p>
+            <p>Not a member? <Link className='nav-links' to='/signup'>Sign Up</Link> </p>
         </div>
     )
 }

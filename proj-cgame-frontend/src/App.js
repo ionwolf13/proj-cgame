@@ -20,7 +20,6 @@ function App() {
           Project CGame
         </h1>
       </header>
-      <NavComponent />
       <MainComponent />
     </div>
   );
