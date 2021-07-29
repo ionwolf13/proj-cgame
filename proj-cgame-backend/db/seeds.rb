@@ -13,6 +13,9 @@ user4 = User.create(username: "jeisga", first_name: "jeisga", middle_name: "isra
 
 game1 = Game.create(name: "Gold Fish", max_players: 4, min_players: 2, description: "Play Gold Fish", rules: "1,2,3....go!")
 game2 = Game.create(name: "War", max_players: 6, min_players: 2, description: "Play War", rules: "1,2,3....WAR!")
+game2 = Game.create(name: "Spoon", max_players: 6, min_players: 2, description: "Play War", rules: "1,2,3....Spoon!")
+game2 = Game.create(name: "Trash Can", max_players: 6, min_players: 2, description: "Play War", rules: "1,2,3....Trash Can!")
+game2 = Game.create(name: "Black Jack", max_players: 6, min_players: 2, description: "Play War", rules: "1,2,3....21!")
 
 gameSession1 = GameSession.create(date:7292021, first_place: 0, second_place: 0, third_place: 0, user_id: User.first.id, game_id: Game.first.id)
 
