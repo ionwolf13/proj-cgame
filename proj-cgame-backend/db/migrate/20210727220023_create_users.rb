@@ -12,6 +12,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string  :email, 
       t.string  :email_confirmation
       t.string  :password_digest:
+      t.integer :friends_id
       t.timestamps
     end
   end
