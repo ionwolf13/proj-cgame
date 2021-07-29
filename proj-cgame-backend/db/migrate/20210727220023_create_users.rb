@@ -10,9 +10,9 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string  :hobbies
       t.string  :experience, default: 0
       t.integer :rank, default: 0 
-      t.string  :email, 
+      t.string  :email 
       t.string  :email_confirmation
-      t.string  :password_digest:
+      t.string  :password_digest
       t.integer :friends_id
       t.timestamps
     end
