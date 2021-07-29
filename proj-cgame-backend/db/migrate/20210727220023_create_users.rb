@@ -6,9 +6,10 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string  :middle_name, defaul: ""
       t.string  :last_name
       t.integer :age
+      t.string  :image
       t.string  :hobbies
-      t.string  :experience
-      t.integer :rank
+      t.string  :experience, default: 0
+      t.integer :rank, default: 0 
       t.string  :email, 
       t.string  :email_confirmation
       t.string  :password_digest:
