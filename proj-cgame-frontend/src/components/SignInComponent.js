@@ -1,14 +1,17 @@
 import React from 'react'
+import axios from 'axios';
 
 export const SignInComponent = () => {
 
     const signInFunction = (e) => {
         e.preventDefault()
+
+        axios.get()
     }
 
 
     return(
-        <div>
+        <div className="main-cont" id='main-grid'>
             <h1>Sign In</h1>
             <form onSubmit={(e) => signInFunction(e)}>
                 <label>
