@@ -1,16 +1,20 @@
 import './App.css';
-import { useContext, useState, React} from 'react';
+import { useState, React, createContext} from 'react';
 import { MainComponent } from './components/MainComponent.js';
-import { NavComponent } from './components/NavComponent.js';
 import logo from './pictures/cardGameLogo.png';
+
+export const AuthContext = createContext()
+export const updateAuthContext = createContext()
 
 function App() {
 
-  const [authData, setAuthData] = useState({auth: false, ulgi: false})
-  
-  const authContext = useContext(authData);
-  
-  console.log(authContext)
+  const [games, setGames] = useState({})
+  // const [authData, setAuthData] = useState({authLGI:false})
+
+  const updateAuth = () => {
+    authData = !authData
+  }
+
 
   return (
     <div className="main-cont" id='main-grid'>
@@ -20,7 +24,11 @@ function App() {
           Project CGame
         </h1>
       </header>
-      <MainComponent />
+      <AuthContext.Provider value={authData}>
+        <updateAuthContext.Provider value={updateAuth}>
+        <MainComponent games={games} setGames={setGames} setAuthData={setAuthData}/>
+        </updateAuthContext.Provider>
+      </AuthContext.Provider>
     </div>
   );
 }
