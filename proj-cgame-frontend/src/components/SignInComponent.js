@@ -1,14 +1,43 @@
 import React from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
-export const SignInComponent = () => {
+export const SignInComponent = ({setAuthData}) => {
+
+    let history = useHistory();
 
     const signInFunction = (e) => {
         e.preventDefault()
-
-        axios.get()
-    }
+        console.log(e.target.username.value,e.target.password.value)
+        let user = {
+            username: e.target.username.value,
+            password: e.target.password.value
+        }
+        axios({
+            method: 'POST',
+            url: 'http://localhost:3001/signin',
+            data: { user: {
+                username: e.target.username.value,
+                password: e.target.password.value
+                }
+            
+            }
+        })     
+        .then(res => {
+            if(res.data.token){
+                    localStorage.token = res.data.token
+                    let newData = JSON.parse(res.data.user)
+                    history.push('/profile')
+                    setAuthData({authLGI: true})
+                    console.log(newData)
+            }
+            else{
+                    alert('Invalid Login Info')
+            }
+        })
+        e.target.reset()
+        }
 
 
     return(
@@ -18,11 +47,11 @@ export const SignInComponent = () => {
                 <label>
                     Username:
                 </label>
-                <input type='text' placeholder='Username'/>
+                <input type='text' name='username'/>
                 <label>
                     Password:
                 </label>
-                <input type='text' placeholder='Password'/>
+                <input type='password' name='password'/>
                 <button type='submit' value='submit'>Submit</button>
             </form>
             <p>Not a member? <Link className='nav-links' to='/signup'>Sign Up</Link> </p>
