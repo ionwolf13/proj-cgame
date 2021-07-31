@@ -6,12 +6,14 @@ import { SignInComponent } from './SignInComponent.js';
 import { SignUpComponent } from './SignUpComponent.js';
 import { NavComponent } from './NavComponent.js';
 import { ProfileComponent } from './ProfileComponent.js';
+import { EditProfileComponent } from './EditProfileComponent.js';
+import { GamesComponent } from './GamesComponent.js';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { AuthContext } from '../App.js';
 
 export const MainComponent = ({games, setGames, setAuthData}) => {
 
-    const[currentUser, setCurrentUser] = useState({})
+    const[currentUser, setCurrentUser] = useState({newData: {username: "", first_name: "", middle_name: "", last_name: "", age: 20, image: "", hobbies: "", email: "" , friends_id: 0}})
 
     const auth = useContext(AuthContext)
 
@@ -24,14 +26,16 @@ export const MainComponent = ({games, setGames, setAuthData}) => {
                     {(auth.authLGI === false)? 
                     <span>
                         <Route exact path='/home' render={routerProps => <HomeComponent />}/>
-                        <Route exact path='/about' render={routerProps => <AboutComponent />}/>
-                        <Route exact path='/signin'render={routerProps => <SignInComponent setAuthData={setAuthData}/>}/>
+                        <Route exact path='/about' render={routerProps => <AboutComponent games={games}/>}/>
+                        <Route exact path='/signin'render={routerProps => <SignInComponent setAuthData={setAuthData} setCurrentUser={setCurrentUser}/>}/>
                         <Route exact path='/signup'render={routerProps => <SignUpComponent setAuthData={setAuthData}/>}/>
                     </span>
                     : 
-                    <div>
-                        <Route exact path='/profile' render={routerProps => <ProfileComponent />} />
-                    </div>
+                    <span>
+                        <Route exact path='/profile' render={routerProps => <ProfileComponent currentUser={currentUser}/>} />
+                        <Route exact path='/editProfile' render={routerProps => <EditProfileComponent currentUser={currentUser}/>} />
+                        <Route exact path='/games' render={routerProps => <GamesComponent currentUser={currentUser} games={games}/>} />
+                    </span>
                     }
                     
                 </React.Fragment>

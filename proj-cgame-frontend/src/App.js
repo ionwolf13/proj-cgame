@@ -1,20 +1,24 @@
 import './App.css';
-import { useState, React, createContext} from 'react';
+import { useState, React, createContext, useEffect} from 'react';
+import axios from 'axios';
 import { MainComponent } from './components/MainComponent.js';
 import logo from './pictures/cardGameLogo.png';
 
 export const AuthContext = createContext()
-export const updateAuthContext = createContext()
 
 function App() {
 
   const [games, setGames] = useState({})
-  // const [authData, setAuthData] = useState({authLGI:false})
+  const [authData, setAuthData] = useState({authLGI:false})
 
-  const updateAuth = () => {
-    authData = !authData
+  useEffect(() => {
+    axios.get('http://localhost:3001/games')
+    .then(res => updateGames(res.data))
+  },[])
+  
+  const updateGames = (data) => {
+    setGames({data})
   }
-
 
   return (
     <div className="main-cont" id='main-grid'>
@@ -25,9 +29,7 @@ function App() {
         </h1>
       </header>
       <AuthContext.Provider value={authData}>
-        <updateAuthContext.Provider value={updateAuth}>
         <MainComponent games={games} setGames={setGames} setAuthData={setAuthData}/>
-        </updateAuthContext.Provider>
       </AuthContext.Provider>
     </div>
   );

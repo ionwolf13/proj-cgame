@@ -46,6 +46,41 @@
   height: 100%;
 }
 
+.second-cont{
+  height: 500px;
+  width: 100%;
+  column-gap: ;
+}
+
+#profile-grid{
+  display: flex;
+  flex-flow: row;
+}
+
+#games-grid{
+  display: flex;
+  flex-flow: row;
+}
+
+#pri-sec{
+  flex: 30%;
+  display: flex;
+  flex-flow: column;
+  width: 100px;
+  border-color: blue;
+  border-style: solid;
+  border-radius: 25px;
+}
+
+#sec-sec{
+  flex: 70%;
+  display: flex;
+  flex-flow: column;
+  border-color: blue;
+  border-style: solid;
+  border-radius: 25px;
+}
+
 #main-grid{
   height: 100%;
 }
