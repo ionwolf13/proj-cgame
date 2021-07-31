@@ -46,7 +46,7 @@
 }
 
 #main-grid{
-  height: 900px;
+  height: 850px;
   background: url(./pictures/cards-2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -109,6 +109,9 @@
 #profile-grid{
   flex-flow: row;
   column-gap: 25px; 
+  opacity: 90%;
+  padding: 25px;
+  border-radius: 25px;
 }
 
 #games-grid{
@@ -123,6 +126,8 @@
   width: 400px;
   align-items: flex-start;
   justify-content: center;
+  background-color: white;
+  opacity: 90%;
   border-color: lightslategray;
   border-style: solid;
   border-radius: 25px;
@@ -137,9 +142,61 @@
   width: 500px;
   padding: 25px;
   border-radius: 25px;
+  background-color: white;
+  opacity: 90%;
   border-color: lightslategray;
   border-style: solid;
   border-radius: 25px;
+}
+
+#all-games-header{
+  margin-top: 480px;
+  margin-bottom: -15px;
+}
+
+#all-games-section{
+  flex: 30%;
+  display: flex;
+  flex-flow: column;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  opacity: 80%;
+  border-color: lightslategray;
+  border-style: solid;
+  border-radius: 25px;
+  padding: 25px;
+  overflow-y: scroll;
+  row-gap: 15px;
+}
+
+#game-info{
+  flex: 70%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 500px;
+  padding: 25px;
+  background-color: white;
+  opacity: 80%;
+  border-radius: 25px;
+  border-color: lightslategray;
+  border-style: solid;
+  border-radius: 25px;
+  overflow-y: scroll;
+}
+
+#lgi-game{
+  padding: 10px;
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+#lgi-game:hover{
+  background-color: rgb(143, 0, 0);
+  opacity: 80%;
 }
 
 .navigation-list{
@@ -162,6 +219,15 @@
   border-radius: 25px;
   color: black;
   height: max-content;
+}
+
+#edit-form-grid{
+  background-color: white;
+  opacity: 90%;
+  padding: 25px;
+  border-radius: 25px;
+  color: black;
+  height: 450px;
 }
 
 .form-cont{
