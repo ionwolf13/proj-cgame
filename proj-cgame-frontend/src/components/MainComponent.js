@@ -18,7 +18,7 @@ export const MainComponent = ({games, setGames, setAuthData}) => {
     const auth = useContext(AuthContext)
 
     return(
-        <div className="main-cont" id='main-grid'>
+        <div className="main-cont" id='sub-grid-cont'>
             <Router>
                 <NavComponent setAuthData={setAuthData}/>
                 <Switch>

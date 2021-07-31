@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
@@ -10,10 +10,6 @@ export const SignInComponent = ({setAuthData, setCurrentUser}) => {
     const signInFunction = (e) => {
         e.preventDefault()
 
-        let user = {
-            username: e.target.username.value,
-            password: e.target.password.value
-        }
         axios({
             method: 'POST',
             url: 'http://localhost:3001/signin',
@@ -42,20 +38,28 @@ export const SignInComponent = ({setAuthData, setCurrentUser}) => {
 
 
     return(
-        <div className="main-cont" id='main-grid'>
+        <div className="main-cont" id='form-grid'>
             <h1>Sign In</h1>
             <form className='form-cont' id='si-f' onSubmit={(e) => signInFunction(e)}>
+                <div className='input-container'>
+                    <label>
+                        Username:
+                    </label>
+                    <input className='form-input' type='text' name='username'/>
+                </div>
+               <div className='input-container'>
                 <label>
-                    Username:
-                </label>
-                <input type='text' name='username'/>
-                <label>
-                    Password:
-                </label>
-                <input type='password' name='password'/>
-                <button type='submit' value='submit'>Submit</button>
+                        Password:
+                    </label>
+                    <input className='form-input' type='password' name='password'/>
+               </div>
+                <div className='input-container'>
+                    <button type='submit' value='submit'>Submit</button>
+                </div>       
             </form>
-            <p>Not a member? <Link className='nav-links' to='/signup'>Sign Up</Link> </p>
+            <div>
+                <p>Not a member? <Link className='nav-links' to='/signup'>Sign Up</Link> </p>
+            </div>
         </div>
     )
 }
