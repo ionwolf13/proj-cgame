@@ -24,7 +24,8 @@ export const NavComponent = ({setAuthData}) => {
                     </ul>
                     :
                     <ul className='navigation-list'>
-                        <li> <Link className='nav-links' to='/profile'> profile </Link></li>
+                        <li> <Link className='nav-links' to='/profile'> Profile </Link></li>
+                        <li> <Link className='nav-links' to='/editProfile'> Edit Profile </Link></li>
                         <li> <Link className='nav-links' to='/games'> games </Link> </li>
                         <li onClick={e => handleSignOut(e)}> <Link className='nav-links' to='/signout'> Sign Out </Link> </li>
                     </ul>    

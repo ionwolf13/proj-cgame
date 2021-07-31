@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
 
-export const SignInComponent = ({setAuthData}) => {
-
+export const SignInComponent = ({setAuthData, setCurrentUser}) => {
+    
     let history = useHistory();
 
     const signInFunction = (e) => {
         e.preventDefault()
-        console.log(e.target.username.value,e.target.password.value)
+
         let user = {
             username: e.target.username.value,
             password: e.target.password.value
@@ -30,6 +30,7 @@ export const SignInComponent = ({setAuthData}) => {
                     let newData = JSON.parse(res.data.user)
                     history.push('/profile')
                     setAuthData({authLGI: true})
+                    setCurrentUser({newData})
                     console.log(newData)
             }
             else{
