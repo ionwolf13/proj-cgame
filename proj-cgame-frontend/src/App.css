@@ -41,48 +41,105 @@
   display: flex;
   flex-flow: column; 
   align-items: center;
-  justify-content: center;
+  justify-items: center;
   width: 100%;
-  height: 100%;
+}
+
+#main-grid{
+  height: 900px;
+  background: url(./pictures/cards-2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  overflow: scroll;
+  width: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
+#sub-grid-cont{
+  margin-bottom: 50px;
+}
+
+#main-header{
+  flex-flow: row;
+  justify-content: center;
+  align-self: center;
+  color: white;
 }
 
 .second-cont{
+  display: flex;
   height: 500px;
   width: 100%;
-  column-gap: ;
+  color: black;
+}
+
+#about-games{
+  width: 800px;
+  background-color: white;
+  opacity: 90%;
+  border-color: lightslategray;
+  border-style: solid;
+  border-radius: 25px;
+  padding: 25px;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  column-gap: 25px;
+  row-gap: 25px;
+}
+
+.game-cards{
+  width: 200px;
 }
 
 #profile-grid{
-  display: flex;
   flex-flow: row;
+  column-gap: 25px; 
 }
 
 #games-grid{
-  display: flex;
   flex-flow: row;
+  column-gap: 25px;
 }
 
 #pri-sec{
   flex: 30%;
   display: flex;
   flex-flow: column;
-  width: 100px;
-  border-color: blue;
+  width: 400px;
+  align-items: flex-start;
+  justify-content: center;
+  border-color: lightslategray;
   border-style: solid;
   border-radius: 25px;
+  padding: 25px;
 }
 
 #sec-sec{
   flex: 70%;
   display: flex;
   flex-flow: column;
-  border-color: blue;
+  align-items: center;
+  width: 500px;
+  padding: 25px;
+  border-radius: 25px;
+  border-color: lightslategray;
   border-style: solid;
   border-radius: 25px;
-}
-
-#main-grid{
-  height: 100%;
 }
 
 .navigation-list{
@@ -94,18 +151,38 @@
   justify-content: space-evenly;
   width: 100%;
   height: 50px;
-  background-color: rgb(82, 123, 126);
+  background-color: rgb(202, 202, 202);
   list-style-type: none;
 }
 
+#form-grid{
+  background-color: white;
+  opacity: 90%;
+  padding: 25px;
+  border-radius: 25px;
+  color: black;
+  height: max-content;
+}
+
 .form-cont{
-  background-color: rgb(226, 226, 226);
   display: flex;
   flex-flow: column;
   height: 125px;
   row-gap: 5px;
 }
 
+.input-container{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-input{
+  border-radius: 25px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
 #su-f{
   height: 100%;
 }

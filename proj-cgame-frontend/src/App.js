@@ -18,13 +18,14 @@ function App() {
   
   const updateGames = (data) => {
     setGames({data})
+    console.log(data)
   }
 
   return (
     <div className="main-cont" id='main-grid'>
       <header className='main-cont' id='main-header'>
+      <img className='header-detail' id='header-logo' src={logo} alt='Project CGame Logo' height='75'/>
         <h1>
-          <img className='header-detail' id='header-logo' src={logo} alt='Project CGame Logo' height='75'/>
           Project CGame
         </h1>
       </header>

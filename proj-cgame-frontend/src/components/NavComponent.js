@@ -13,7 +13,7 @@ export const NavComponent = ({setAuthData}) => {
     }
 
     return(
-            <nav className="main-cont" id='main-grid'>
+            <nav className="main-cont" id=''>
                 {(auth.authLGI === false)? 
                     <ul className='navigation-list'>
                     
