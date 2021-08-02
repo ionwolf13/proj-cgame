@@ -1,14 +1,16 @@
 import React from 'react';
+import axios from 'axios';
 import { useState } from 'react';
 import { GameCard } from './GameCard';
 
 export const GamesComponent = ({games, currentUser}) => {
 
     const [currentChoice, setCurrentChoice] = useState({currentGame: "none"})
-    console.log(games)
     const handlePlayGame = (e) => {
         e.preventDefault()
         console.log(currentUser, currentChoice)
+
+        
 
     }
 
