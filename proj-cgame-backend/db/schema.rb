@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_030250) do
   create_table "card_decks", force: :cascade do |t|
     t.integer "card_id"
     t.integer "deck_id"
+    t.integer "game_session_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,9 +37,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_030250) do
 
   create_table "decks", force: :cascade do |t|
     t.boolean "shuffled", default: false
-    t.boolean "success", default: false
-    t.integer "total_cards"
-    t.integer "game_session_id"
+    t.integer "total_cards", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -52,11 +51,12 @@ ActiveRecord::Schema.define(version: 2021_08_02_030250) do
 
   create_table "game_sessions", force: :cascade do |t|
     t.integer "date"
-    t.string "first_place"
-    t.string "second_place"
-    t.string "third_place"
+    t.integer "first_place", default: 0
+    t.integer "second_place", default: 0
+    t.integer "third_place", default: 0
     t.integer "user_id"
     t.integer "game_id"
+    t.boolean "current_active", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
