@@ -8,7 +8,7 @@ export const AuthContext = createContext()
 
 function App() {
 
-  const [games, setGames] = useState({})
+  const [games, setGames] = useState({data: {name: "",max_players: 0,min_players: 0,description: "", rules: "",success: false, total_cards: 52}})
   const [authData, setAuthData] = useState({authLGI:false})
 
   useEffect(() => {

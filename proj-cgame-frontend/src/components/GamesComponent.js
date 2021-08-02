@@ -2,10 +2,16 @@ import React from 'react';
 import { useState } from 'react';
 import { GameCard } from './GameCard';
 
-export const GamesComponent = ({games}) => {
+export const GamesComponent = ({games, currentUser}) => {
 
     const [currentChoice, setCurrentChoice] = useState({currentGame: "none"})
     console.log(games)
+    const handlePlayGame = (e) => {
+        e.preventDefault()
+        console.log(currentUser, currentChoice)
+
+    }
+
     return(
         <div className="main-cont" id='games-grid'>
             <div className='second-cont' id='all-games-section'>
@@ -23,7 +29,7 @@ export const GamesComponent = ({games}) => {
                      <p>{currentChoice.currentGame.description}</p>
                      <h4>Rules:</h4>
                      <p>{currentChoice.currentGame.rules}</p>
-                     <button >Play Game</button>
+                     <button onClick={e => handlePlayGame(e)}>Play Game</button>
                  </div>
                  }
             </div>
