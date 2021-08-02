@@ -249,6 +249,34 @@
   padding: 5px;
   margin-bottom: 5px;
 }
+
+#current-game{
+  display: flex;
+  flex-flow: column;
+  width: 500px;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  opacity: 80%;
+  border-color: lightslategray;
+  border-style: solid;
+  border-radius: 25px;
+  padding: 25px;
+  overflow-y: scroll;
+  row-gap: 15px;
+}
+
+.game-players{
+  border-radius: 25px;
+  border-color: lightslategray;
+  border-style: solid;
+  border-radius: 25px;
+  height: 350px;
+  width: 350px;
+  padding: 10px;
+}
+
 #su-f{
   height: 100%;
 }

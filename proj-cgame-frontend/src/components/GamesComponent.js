@@ -4,23 +4,29 @@ import { useState } from 'react';
 import { GameCard } from './GameCard';
 import { useHistory } from 'react-router';
 
-export const GamesComponent = ({games, currentUser}) => {
+export const GamesComponent = ({games, currentUser, setCurrentUser}) => {
+
+    let history = useHistory();
 
     const [currentChoice, setCurrentChoice] = useState({currentGame: "none"})
     const handlePlayGame = (e) => {
         e.preventDefault()
-        console.log(currentUser, currentChoice)
         let urlAdapter = 'http://localhost:3001/game_sessions'
         let game_session = {
             user_id: currentUser.newData.id,
-            game_id: currentChoice.id
+            game_id: currentChoice.currentGame.id
         }
         axios({
             method: 'POST',
             url: urlAdapter,
             data: { game_session }
         })
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res.data.gameSession)
+            let newData = JSON.parse(res.data.gameSession)
+            console.log(newData)
+            history.push('/userCurrentGame')
+        })
     }
 
     return(

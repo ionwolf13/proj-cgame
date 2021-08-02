@@ -11,11 +11,10 @@ class GameSessionsController < ApplicationController
     end
        
     def create
-        debugger
         @gameSession = GameSession.new(game_session_params(:user_id, :game_id))
         if @gameSession.valid?
             @gameSession.save
-            render json: {message: 'Submitted', gameSession: @gameSession}
+            render json: {message: 'Submitted', gameSession: @gameSession.to_json({include: [:game]})}
         else
             render json: {message: @gameSession.errors}
         end
