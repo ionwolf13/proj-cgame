@@ -6,6 +6,7 @@ class GameSession < ApplicationRecord
     has_many    :rounds
     
     has_one     :discard_pile
-    has_one     :deck
+    has_one     :card_deck
     
 end
+ 
