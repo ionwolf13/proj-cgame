@@ -1,0 +1,3 @@
+class CardDeck < ApplicationRecord
+
+end

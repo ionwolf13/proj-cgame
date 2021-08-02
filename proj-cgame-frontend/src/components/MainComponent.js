@@ -8,8 +8,11 @@ import { NavComponent } from './NavComponent.js';
 import { ProfileComponent } from './ProfileComponent.js';
 import { EditProfileComponent } from './EditProfileComponent.js';
 import { GamesComponent } from './GamesComponent.js';
+import { GameRoomsContainer } from './GameRoomContainer.js';
+import { GameRoomComponent } from './GameRoomComponent.js';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { AuthContext } from '../App.js';
+
 
 export const MainComponent = ({games, setGames, setAuthData}) => {
 
@@ -35,7 +38,9 @@ export const MainComponent = ({games, setGames, setAuthData}) => {
                         <Route exact path='/profile' render={routerProps => <ProfileComponent currentUser={currentUser}/>} />
                         <Route exact path='/editProfile' render={routerProps => <EditProfileComponent currentUser={currentUser}/>} />
                         <Route exact path='/games' render={routerProps => <GamesComponent currentUser={currentUser} games={games}/>} />
-                    </span>
+                        <Route exact path='/gameRooms' render={routerProps => <GameRoomsContainer />} />
+                        <Route exact path='/userCurrentGame' render={ routerProps => <GameRoomComponent />} />
+                        </span>
                     }
                     
                 </React.Fragment>
