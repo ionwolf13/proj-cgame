@@ -4,7 +4,7 @@ export const GameRoomComponent = () => {
 
     return(
         <div>
-            Current Game
+            <h1>Current Game</h1>
         </div>
     )
 }

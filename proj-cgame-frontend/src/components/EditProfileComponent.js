@@ -5,67 +5,38 @@ export const EditProfileComponent = ({currentUser}) => {
    
     const handleEnrollFormFunction = (e) => {
         e.preventDefault()
-        
-        // let urlAdapter = ""
-        // if(auth.role === "stu"){
-        //     urlAdapter = `http://localhost:3001/users/`
-        //     let user = {
-        //         username: username.value,
-        //         email: email.value,
-        //         email_confirmation: email_confirmation.value,
-        //         password: password.value,
-        //         password_confirmation: password_confirmation.value
-        //         }
+        let urlAdapter = `http://localhost:3001/users/${currentUser.newData.id}`
+        let user = {
+            username: e.target.username.value,
+            email: e.target.email.value,
+            email_confirmation: e.target.email_confirmation.value,
+            password: e.target.password.value,
+            password_confirmation: e.target.password_confirmation.value
+            }
 
-        //     Object.entries(user).forEach(arr => {
-        //                         if(!user[arr[0]]){
-        //                 delete user[arr[0]]
-        //     }})          
-        //     if(Object.keys(user).length !== 0){
-        //         axios({
-        //                 method: 'PATCH',
-        //                 url: urlAdapter,
-        //                 data: { user }
-        //             })
-        //             .then(res => { 
-                        
-        //             })
-        //     }
-        //     else{
-        //         return null
-        //     }
+        Object.entries(user).forEach(arr => {
+            if(!user[arr[0]]){
+                    delete user[arr[0]]
+                }
+        })
 
-        // }
-        // else{
-        //     urlAdapter = `http://localhost:3001/instructors/`
-        //     let instructor = {
-        //         username: username.value,
-        //         email: email.value,
-        //         email_confirmation: email_confirmation.value,
-        //         password: password.value,
-        //         password_confirmation: password_confirmation.value
-        //         }
-        //         Object.entries(instructor).forEach(arr => {
-        //             if(!instructor[arr[0]]){
-        //                     delete instructor[arr[0]]
-        //                 }
-        //         })
-        //     if(Object.keys(instructor).length !== 0){
-        //         axios({
-        //                 method: 'PATCH',
-        //                 url: urlAdapter,
-        //                 data: { instructor }
-        //             })
-        //             .then(res => { 
-                        
-        //             })
-        //     }
-        //     else{
-        //         return null
-        //     }
-        // }
+        console.log(user)
+        if(Object.keys(user.length !== 0)){
+            axios({
+                    method: 'PATCH',
+                    url: urlAdapter,
+                    data: { user }
+                })
+                .then(res => { 
+                    
+                })
+        }
+        else{
+            return null
+        }
         e.target.reset()
     }
+        
 
     return(
 

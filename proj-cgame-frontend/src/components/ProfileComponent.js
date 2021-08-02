@@ -9,6 +9,7 @@ export const ProfileComponent = ({currentUser}) => {
                 <h2>{currentUser.newData.first_name} {currentUser.newData.middle_name} {currentUser.newData.last_name}</h2>
                 <img src={currentUser.newData.image} alt='User Profile logo'/>
                 <p>Username: {currentUser.newData.username}</p>
+                <p>Email: {currentUser.newData.email}</p>
                 <p>Hobbies: {currentUser.newData.hobbies}</p>
                 <p>Exp: {currentUser.newData.experience}</p>
                 <p>Rank: {currentUser.newData.rank}</p>
