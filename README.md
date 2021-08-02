@@ -3,10 +3,10 @@
 ### Front End
 
   Utilized JavaScript Front End
-    React.js
-    Flexbox
-    Axios.js
-    Node.js
+    React.js <br>
+    Flexbox <br>
+    Axios.js <br>
+    Node.js <br>
     
 ### Back End
   Utilized Ruby Back End
