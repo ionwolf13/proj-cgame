@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { GameCard } from './GameCard';
+import { useHistory } from 'react-router';
 
 export const GamesComponent = ({games, currentUser}) => {
 
@@ -9,9 +10,17 @@ export const GamesComponent = ({games, currentUser}) => {
     const handlePlayGame = (e) => {
         e.preventDefault()
         console.log(currentUser, currentChoice)
-
-        
-
+        let urlAdapter = 'http://localhost:3001/game_sessions'
+        let game_session = {
+            user_id: currentUser.newData.id,
+            game_id: currentChoice.id
+        }
+        axios({
+            method: 'POST',
+            url: urlAdapter,
+            data: { game_session }
+        })
+        .then(res => console.log(res))
     }
 
     return(

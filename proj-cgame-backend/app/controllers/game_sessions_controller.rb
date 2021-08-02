@@ -2,24 +2,23 @@ class GameSessionsController < ApplicationController
 
     def index
         @gameSessions = GameSession.all
-        render json: gameSessions.all.to_json({})
+        render json: @gameSessions
     end
 
     def show
         @gameSession = GameSession.find(params[:id])
-        render json: @gameSession.to_json({}) 
+        render json: @gameSession 
     end
        
     def create
-        @gameSession = GameSession.new(game_session_params())
+        debugger
+        @gameSession = GameSession.new(game_session_params(:user_id, :game_id))
         if @gameSession.valid?
             @gameSession.save
-            
             render json: {message: 'Submitted', gameSession: @gameSession}
         else
             render json: {message: @gameSession.errors}
         end
-       
     end
 
     def update
@@ -42,4 +41,4 @@ class GameSessionsController < ApplicationController
         params.require(:game_session).permit(*args)
     end
 
-end
+end    
