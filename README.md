@@ -3,14 +3,14 @@
   Black Jack, Spoon and many more. Come and play!
 ### Front End
 
-  Utilized JavaScript Front End
+  Utilized JavaScript Front End <br>
     - React.js <br>
     - Flexbox <br>
     - Axios.js <br>
     - Node.js <br>
     
 ### Back End
-  Utilized Ruby Back End
+  Utilized Ruby Back End <br>
     - JWT <br>
     - Bcrypt
     
