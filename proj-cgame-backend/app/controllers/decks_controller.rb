@@ -14,7 +14,6 @@ class DecksController < ApplicationController
         @deck = Deck.new(deck_params())
         if @deck.valid?
             @deck.save
-            
             render json: {message: 'Application Submitted', deck: @deck}
         else
             render json: {message: @deck.errors}
