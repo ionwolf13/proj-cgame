@@ -1,5 +1,6 @@
 ### PROJ CGame
-  Application consisting of card games. Come and play!
+  Create an account and see the multiple card games that you can play! This application contains games like War, Go Fish,
+  Black Jack, Spoon and many more. Come and play!
 ### Front End
 
   Utilized JavaScript Front End
