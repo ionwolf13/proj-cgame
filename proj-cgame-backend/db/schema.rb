@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_030250) do
 
   create_table "discard_piles", force: :cascade do |t|
     t.integer "game_session_id"
-    t.integer "total_cards"
+    t.integer "total_cards", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

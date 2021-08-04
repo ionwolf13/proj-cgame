@@ -11,7 +11,8 @@ class DecksController < ApplicationController
     end
 
     def create
-        @deck = Deck.new(deck_params())
+        @deck = Deck.new(deck_params(:total_cards))
+        
         if @deck.valid?
             @deck.save
             render json: {message: 'Application Submitted', deck: @deck}
@@ -35,13 +36,9 @@ class DecksController < ApplicationController
     end
 
     def shuffle
-        i = self.length
-        for (i - 1; i > 0; i--) {
-            j = Math.floor(Math.random() * i);
-            temp = deck[i];
-            deck[i] = deck[j];
-            deck[j] = temp;
-        }
+        for i in self.cards do
+          print i
+        end
     end
 
     private

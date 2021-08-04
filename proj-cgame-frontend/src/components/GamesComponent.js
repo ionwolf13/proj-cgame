@@ -9,6 +9,7 @@ export const GamesComponent = ({games, currentUser, setCurrentUser}) => {
     let history = useHistory();
 
     const [currentChoice, setCurrentChoice] = useState({currentGame: "none"})
+    
     const handlePlayGame = (e) => {
         e.preventDefault()
         let urlAdapter = 'http://localhost:3001/game_sessions'
@@ -24,7 +25,7 @@ export const GamesComponent = ({games, currentUser, setCurrentUser}) => {
         .then(res => {
             console.log(res.data.gameSession)
             let newData = JSON.parse(res.data.gameSession)
-            console.log(newData)
+            setCurrentUser({...currentUser, currentSession: newData})
             history.push('/userCurrentGame')
         })
     }
