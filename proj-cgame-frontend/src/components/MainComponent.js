@@ -14,8 +14,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { AuthContext } from '../App.js';
 
 
-export const MainComponent = ({games, setGames, setAuthData}) => {
-
+export const MainComponent = ({games, setGames, setAuthData, cards}) => {
+    // console.log(cards.cards[0])
     const[currentUser, setCurrentUser] = useState({currentSession: {},newData: {username: "", first_name: "", middle_name: "", last_name: "", age: 20, image: "", hobbies: "", email: "" , friends_id: 0}})
 
     const auth = useContext(AuthContext)
@@ -23,7 +23,7 @@ export const MainComponent = ({games, setGames, setAuthData}) => {
     return(
         <div className="main-cont" id='sub-grid-cont'>
             <Router>
-                <NavComponent setAuthData={setAuthData}/>
+                <NavComponent setAuthData={setAuthData} />
                 <Switch>
                 <React.Fragment>
                     {(auth.authLGI === false)? 
@@ -39,7 +39,7 @@ export const MainComponent = ({games, setGames, setAuthData}) => {
                         <Route exact path='/editProfile' render={routerProps => <EditProfileComponent currentUser={currentUser}/>} />
                         <Route exact path='/games' render={routerProps => <GamesComponent currentUser={currentUser} setCurrentUser={setCurrentUser} games={games}/>} />
                         <Route exact path='/gameRooms' render={routerProps => <GameRoomsContainer />} />
-                        <Route exact path='/userCurrentGame' render={ routerProps => <GameRoomComponent currentUser={currentUser}/>} />
+                        <Route exact path='/userCurrentGame' render={ routerProps => <GameRoomComponent currentUser={currentUser} cards={cards}/>} />
                     </span>
                     }
                     

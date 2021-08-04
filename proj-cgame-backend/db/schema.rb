@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 2021_08_02_030250) do
     t.integer "suite"
     t.string "value"
     t.string "code"
-    t.integer "deck_id"
-    t.integer "user_hand_id"
     t.integer "discard_pile"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

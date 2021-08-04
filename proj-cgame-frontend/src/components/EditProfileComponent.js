@@ -3,7 +3,23 @@ import axios from 'axios';
 
 export const EditProfileComponent = ({currentUser}) => {
    
+    // let errArr = []
+
+    // if(user.username.length < 6){
+    //     errArr.push('Username must have atleast 6 characters')
+    // }
+    // if(user.email !== user.email_confirmation){
+    //     errArr.push('Emails do not match.')
+    // }
+    // if(user.password !== user.password_confirmation){
+    //     errArr.push('Passwords do not match.')
+    // }
+    // if(errArr.length > 0){
+    //     return errArr
+    // }
+
     const handleEnrollFormFunction = (e) => {
+        
         e.preventDefault()
         let urlAdapter = `http://localhost:3001/users/${currentUser.newData.id}`
         let user = {
@@ -36,7 +52,7 @@ export const EditProfileComponent = ({currentUser}) => {
         }
         e.target.reset()
     }
-        
+
 
     return(
 

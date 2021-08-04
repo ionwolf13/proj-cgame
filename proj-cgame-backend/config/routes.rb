@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :games, :users, :game_sessions, :rounds, :decks, :user_hands, :discard_piles, :cards, :card_decks
 
   post '/signin', to: 'auth#create'
-
+  get   '/shuffle', to: 'deck#shuffle'
 
 end
