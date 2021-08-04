@@ -11,10 +11,10 @@ class CardDecksController < ApplicationController
     end
 
     def create
-        @card_deck = CardDeck.new(params[:card_id,deck_id])
+        @card_deck = CardDeck.new(card_deck_params(:card_id, :deck_id, :game_session_id))
         if @card_deck.valid?
             @card_deck.save
-            render json: {message: 'Accepted', card_deck: @card_deck.to_json({include: [:deck]})}
+            render json: {message: 'Accepted', card_deck: @card_deck}
         else
             render json: {message: "Error"}
         end
