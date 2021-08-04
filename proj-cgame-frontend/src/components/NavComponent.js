@@ -17,17 +17,17 @@ export const NavComponent = ({setAuthData}) => {
                 {(auth.authLGI === false)? 
                     <ul className='navigation-list'>
                     
-                        <li> <Link className='nav-links' to='/home'> Home </Link></li>
-                        <li> <Link className='nav-links' to='/about'> About </Link> </li>
-                        <li> <Link className='nav-links' to='/signin'> Sign In </Link> </li>
-                        <li> <Link className='nav-links' to='/signup'> Sign Up </Link> </li>
+                        <li> <Link className='nav-links' to='/home'>| Home |</Link></li>
+                        <li> <Link className='nav-links' to='/about'>| About |</Link> </li>
+                        <li> <Link className='nav-links' to='/signin'>| Sign In |</Link> </li>
+                        <li> <Link className='nav-links' to='/signup'>| Sign Up |</Link> </li>
                     </ul>
                     :
                     <ul className='navigation-list'>
-                        <li> <Link className='nav-links' to='/profile'> Profile </Link></li>
-                        <li> <Link className='nav-links' to='/editProfile'> Edit Profile </Link></li>
-                        <li> <Link className='nav-links' to='/games'> Games </Link> </li>
-                        <li> <Link className='nav-links' to='/gameRooms'> Game Rooms </Link> </li>
+                        <li> <Link className='nav-links' to='/profile'>| Profile |</Link></li>
+                        <li> <Link className='nav-links' to='/editProfile'>| Edit Profile |</Link></li>
+                        <li> <Link className='nav-links' to='/games'>| Games |</Link> </li>
+                        <li> <Link className='nav-links' to='/gameRooms'>| Game Rooms |</Link> </li>
                         <li onClick={e => handleSignOut(e)}> <Link className='nav-links' to='/signout'> Sign Out </Link> </li>
                     </ul>    
                 }    

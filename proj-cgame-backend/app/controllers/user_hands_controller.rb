@@ -1,40 +1,28 @@
 class UserHandsController < ApplicationController
 
-    def index
-        @user_hands = UserHand.all
-        render json: UserHand.all.to_json({})
-    end
-
     def show
-        @userhand = UserHand.find(params[:id])
-        render json: @userhand.to_json({}) 
+        @user_hand = UserHand.find(params[:id])
+        render json: @user_hand.to_json({}) 
     end
        
     def create
-        @userhand = User.new(user_hand_params())
-        if @userhand.valid?
-            @userhand.save
+        @user_hand = User.new(user_hand_params(:user_id))
+        if @user_hand.valid?
+            @user_hand.save
             
-            render json: {message: 'Application Submitted', user: @userhand}
+            render json: {message: 'Application Submitted', user_hand: @user_hand}
         else
-            render json: {message: @userhand.errors}
+            render json: {message: @user_hand.errors}
         end
        
     end
 
     def update
-        @userhand = UserHand.find(params[:id])
-        @userhand.update(user_hand_params())
-        render json: @userhand.to_json({})
+        @user_hand = UserHand.find(params[:id])
+        @user_hand.update(user_hand_params())
+        render json: @user_hand.to_json({})
         
     end
-
-    def destroy
-        @userhand = UserHand.find(params[:id])
-        @userhand.destroy
-        render json: {message: "Account Removed"}
-    end
-
 
     private
 

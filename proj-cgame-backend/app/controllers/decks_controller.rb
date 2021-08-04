@@ -34,6 +34,16 @@ class DecksController < ApplicationController
         render json: @user.to_json({})
     end
 
+    def shuffle
+        i = self.length
+        for (i - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * i);
+            temp = deck[i];
+            deck[i] = deck[j];
+            deck[j] = temp;
+        }
+    end
+
     private
 
     def deck_params(*args)
