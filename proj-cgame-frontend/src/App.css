@@ -279,13 +279,40 @@
 }
 
 .game-players{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 25px;
+  background-color: rgba(99, 0, 0, 0.925);
   border-radius: 25px;
   border-color: lightslategray;
   border-style: solid;
   border-radius: 25px;
+  color: white;
+  opacity: 130%;
   height: 350px;
   width: 350px;
   padding: 10px;
+}
+
+.card{
+  border-radius: 5px;
+}
+
+.back-card{
+  display: flex;
+  flex-flow: column;
+  height: 100px;
+  width: 100px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-card-num{
+  font-size: 16px;
+  margin-top: 0px
 }
 
 #su-f{

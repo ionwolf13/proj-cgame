@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
+import { CardSetComponent } from './CardSetComponent';
+import { DrawCardComponent } from './DrawCardComponent';
 
 export const GameRoomComponent = ({currentUser, cards}) => {
     
@@ -18,7 +20,6 @@ export const GameRoomComponent = ({currentUser, cards}) => {
             data: {deck: {total_cards: 0}}
         })
         .then(res => {
-            console.log(res.data)
             data = res.data.deck
             setDeck({data})
             createCards(data)
@@ -26,11 +27,11 @@ export const GameRoomComponent = ({currentUser, cards}) => {
     }
 
     const createCards = (deckData) => {
-        console.log("here is the new deck",deckData)
+    
         let urlAdapter = `http://localhost:3001/card_decks`
         cards.cards.map(card => {
-            console.log(card.id)
-            let card_deck = {card_id: card.id, deck_id: deckData.id, game_session_id: currentUser.currentSession.id}
+        
+        let card_deck = {card_id: card.id, deck_id: deckData.id, game_session_id: currentUser.currentSession.id}
             axios({
                 method: "POST",
                 url: urlAdapter,
@@ -58,10 +59,14 @@ export const GameRoomComponent = ({currentUser, cards}) => {
                 <h2>Begin Game!</h2>
                 <div className='game-players' id='individual-player'>
                     <h2>AI</h2>
+                    <DrawCardComponent />
+                    <CardSetComponent />
                 </div>
                 <button onClick={e => warFunction(e)}>War!</button>
                 <div className='game-players' id='individual-player'>
                     <h2>{currentUser.newData.username}</h2>
+                    <DrawCardComponent />
+                    <CardSetComponent />
                 </div>
             </div>
             ]   
