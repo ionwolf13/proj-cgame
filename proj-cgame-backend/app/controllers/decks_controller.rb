@@ -35,12 +35,6 @@ class DecksController < ApplicationController
         render json: @user.to_json({})
     end
 
-    def shuffle
-        for i in self.cards do
-          print i
-        end
-    end
-
     private
 
     def deck_params(*args)
