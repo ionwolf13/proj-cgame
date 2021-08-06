@@ -7,7 +7,7 @@ import { DrawCardComponent } from './DrawCardComponent';
 export const GameRoomComponent = ({currentUser, cards}) => {
     
     const [optionChosen, setOptionChosen] = useState({option: false})
-    const [deck, setDeck] = useState({})
+    const [deckGame, setDeck] = useState("")
 
     const selectGameType = (e) => {
         e.preventDefault()
@@ -20,24 +20,28 @@ export const GameRoomComponent = ({currentUser, cards}) => {
             data: {deck: {total_cards: 0}}
         })
         .then(res => {
-            data = res.data.deck
-            setDeck({data})
-            createCards(data)
+            let newData = JSON.parse(res.data.deck)
+            createCards(newData)
         })
     }
 
     const createCards = (deckData) => {
-    
         let urlAdapter = `http://localhost:3001/card_decks`
         cards.cards.map(card => {
-        
-        let card_deck = {card_id: card.id, deck_id: deckData.id, game_session_id: currentUser.currentSession.id}
+            let card_deck = {card_id: card.id, deck_id: deckData.id, game_session_id: currentUser.currentSession.id}
             axios({
                 method: "POST",
                 url: urlAdapter,
                 data: {card_deck}
             })
-            .then(res => console.log(res.data))
+        })
+
+        axios.get(`http://localhost:3001/decks/${deckData.id}`)
+        .then(res => {
+            // let deckData = JSON.parse(res.data.deck)
+            let deckData = res.data
+            console.log(res.data)
+            setDeck({deckData})
         })
     }
 
@@ -45,7 +49,7 @@ export const GameRoomComponent = ({currentUser, cards}) => {
 
     const warFunction = (e) => {
         e.preventDefault()
-        console.log("Lets Have War!!!")
+        console.log("Lets Have War!!!",deckGame)
     }
 
     return(
