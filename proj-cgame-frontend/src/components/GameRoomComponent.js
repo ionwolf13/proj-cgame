@@ -3,11 +3,13 @@ import React from 'react';
 import { useState } from 'react';
 import { CardSetComponent } from './CardSetComponent';
 import { DrawCardComponent } from './DrawCardComponent';
+import { shuffleDeck, splitDeck } from './WarFunctionality';
 
 export const GameRoomComponent = ({currentUser, cards}) => {
     
     const [optionChosen, setOptionChosen] = useState({option: false})
     const [deckGame, setDeck] = useState("")
+    const [shuffleWar, setShuffleWar] = useState({currentWord: "shuffle"})
 
     const selectGameType = (e) => {
         e.preventDefault()
@@ -49,6 +51,7 @@ export const GameRoomComponent = ({currentUser, cards}) => {
 
     const warFunction = (e) => {
         e.preventDefault()
+        setShuffleWar({currentWord: "War"})
         console.log("Lets Have War!!!",deckGame)
     }
 
@@ -66,7 +69,7 @@ export const GameRoomComponent = ({currentUser, cards}) => {
                     <DrawCardComponent />
                     <CardSetComponent />
                 </div>
-                <button onClick={e => warFunction(e)}>War!</button>
+                <button onClick={e => warFunction(e)}>{shuffleWar.currentWord}!</button>
                 <div className='game-players' id='individual-player'>
                     <h2>{currentUser.newData.username}</h2>
                     <DrawCardComponent />

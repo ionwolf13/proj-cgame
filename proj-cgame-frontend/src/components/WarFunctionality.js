@@ -9,7 +9,7 @@ export const shuffleDeck = (deck) => {
     return deck
 }
 
-export const splitDec = (deck) => {
+export const splitDeck = (deck) => {
     let arr1 = deck.slice(0,26)
     let arr2 = deck.slice(26,52)
     let deckObj = {deck1: arr1, deck2: arr2}
