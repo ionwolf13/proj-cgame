@@ -7,7 +7,7 @@ class DecksController < ApplicationController
 
     def show
         @deck = Deck.find(params[:id])
-        render json: @deck.to_json({}) 
+        render json: @deck.to_json({include: [:cards]})
     end
 
     def create
@@ -15,7 +15,7 @@ class DecksController < ApplicationController
         
         if @deck.valid?
             @deck.save
-            render json: {message: 'Application Submitted', deck: @deck}
+            render json: {message: 'Application Submitted', deck: @deck.to_json({include: [:cards]})}
         else
             render json: {message: @deck.errors}
         end

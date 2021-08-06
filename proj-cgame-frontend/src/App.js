@@ -15,9 +15,14 @@ function App() {
   useEffect(() => {
     axios.get('http://localhost:3001/games')
     .then(res => updateGames(res.data))
+
+  },[])
+
+  useEffect(() => {
     axios.get('http://localhost:3001/cards')
     .then(res => updateCards(res.data))
-  },[])
+
+  }, [])
   
   const updateCards = (data) => {
     setCards({cards: data})
@@ -32,7 +37,6 @@ function App() {
       <header className='main-cont' id='main-header'>
       <img className='header-detail' id='header-logo' src={logo} alt='Project CGame Logo' height='75'/>
         <h1>
-          {/* <img src={cards.cards[0].image}/> */}
           Project CGame
         </h1>
       </header>
